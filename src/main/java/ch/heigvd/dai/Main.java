@@ -1,5 +1,6 @@
 package ch.heigvd.dai;
 
+import ch.heigvd.dai.commands.*;
 import java.io.File;
 import picocli.CommandLine;
 
