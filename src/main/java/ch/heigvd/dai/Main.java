@@ -8,10 +8,10 @@ import picocli.CommandLine;
         description = "VarMod is a variable modifier for .txt file",
         version = "1.0.0",
         subcommands = {
-                Add.class/*,
-                Modify.class,
+                Add.class,
+                /*Modify.class,*/
                 Delete.class,
-                Rename.class*/
+                /*Rename.class*/
         },
         scope = CommandLine.ScopeType.INHERIT,
         mixinStandardHelpOptions = true)
