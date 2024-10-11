@@ -31,7 +31,8 @@ public class Delete implements Runnable {
             List<String> lines = new ArrayList<String>();
             String line;
             while ((line = br.readLine()) != null) {
-                if(!Objects.equals(br.readLine(), varName)){
+                String[] part = line.split("\\=");
+                if(!Objects.equals(part[0], varName)){
                     lines.add(line+"\n");
                 }
             }
