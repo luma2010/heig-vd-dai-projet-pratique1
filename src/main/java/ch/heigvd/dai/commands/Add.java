@@ -7,6 +7,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @CommandLine.Command(name="Add", description="Add a variable to a file.")
 public class Add implements Runnable {
@@ -27,6 +28,7 @@ public class Add implements Runnable {
     @Override
     public void run(){
         try{
+            boolean alreadyExist = false;
             InputStream is = new FileInputStream(parent.getFileName());
             Reader reader = new InputStreamReader(is, StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(reader);
@@ -42,10 +44,18 @@ public class Add implements Runnable {
             Writer writer = new OutputStreamWriter(os, StandardCharsets.UTF_8);
             BufferedWriter bw = new BufferedWriter(writer);
             for(int i = 0; i < lines.size(); i++){
+                String[] part = lines.get(i).split("\\=");
+                if(Objects.equals(part[0],varName)){
+                    alreadyExist = true;
+                    System.out.println("Warning, variable "+varName+" Already exist");
+                }
                 bw.write(lines.get(i));
             }
-            String variable = varName+"="+varValue+"\n";
-            bw.write(variable);
+            if(!alreadyExist){
+                String variable = varName+"="+varValue+"\n";
+                bw.write(variable);
+                System.out.println("Write new variable "+varName+" with value "+varValue);
+            }
             bw.flush();
         }catch (IOException e){
             System.out.println("Exeption "+e);
