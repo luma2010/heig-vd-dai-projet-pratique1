@@ -9,7 +9,7 @@ import picocli.CommandLine;
         version = "1.0.0",
         subcommands = {
                 Add.class,
-                /*Modify.class,*/
+                Modify.class,
                 Delete.class,
                 /*Rename.class*/
         },
