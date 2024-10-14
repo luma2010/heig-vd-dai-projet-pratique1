@@ -12,6 +12,7 @@ import picocli.CommandLine;
                 Modify.class,
                 Delete.class,
                 Rename.class
+
         },
         scope = CommandLine.ScopeType.INHERIT,
         mixinStandardHelpOptions = true)
