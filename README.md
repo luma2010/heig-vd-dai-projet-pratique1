@@ -56,8 +56,15 @@ Exemple :
 ```text
 java -jar heig-vd-dai-projet-pratique1-1.0-SNAPSHOT.jar test.txt Delete test
 ```
+Si la variable a été supprimée, le message suivant devrait s'afficher :
+```text
+Variable test has been deleted.
+```
 
-Cette commande ne fourni pas de message en cas de réussite ou d'échec
+La fonction affiche le message suivant si la variable n'existe pas :
+```text
+Variable test not found, nothing changed.
+```
 
 #### Rename
 
