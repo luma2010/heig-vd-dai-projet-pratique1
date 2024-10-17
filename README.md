@@ -64,8 +64,33 @@ Cette commande ne fourni pas de message en cas de réussite ou d'échec
 L'utilisation de la commande Rename doit se faire comme l'exemple ci-dessous :
 
 ```text
+java -jar heig-vd-dai-projet-pratique1-1.0-SNAPSHOT.jar <nomFichier> Rename <nomVariable> <nouveauNom>
+```
+
+En prenant l'exemple ci-dessous : 
+```text
 java -jar heig-vd-dai-projet-pratique1-1.0-SNAPSHOT.jar test.txt Rename test newTest
 ```
+
+Le message affiché doit être :
+
+```text
+Variable test is now newTest
+```
+
+En cas de problème, le programme peut afficher deux messages différents :
+- Pour le cas où le nouveau nom correspond à une variable déjà existante, le message sera le suivant :
+
+```text
+Variable test not changed because newTest already exists.
+```
+- Pour le cas où la variable que l'on souhaite modifié n'existe pas le message doit être celui-ci :
+
+```text
+Variable test not found, no changes made.
+```
+
+
 
 
 
