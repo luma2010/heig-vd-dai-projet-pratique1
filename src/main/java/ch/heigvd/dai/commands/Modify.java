@@ -27,10 +27,10 @@ public class Modify implements Runnable {
 
     @Override
     public void run(){
-        try{
-            InputStream is = new FileInputStream(parent.getFileName());
+        try(InputStream is = new FileInputStream(parent.getFileName());
             Reader reader = new InputStreamReader(is, StandardCharsets.UTF_8);
-            BufferedReader br = new BufferedReader(reader);
+            BufferedReader br = new BufferedReader(reader);){
+
 
             List<String> lines = new ArrayList<String>();
             String line;
@@ -38,20 +38,24 @@ public class Modify implements Runnable {
                 lines.add(line+"\n");
             }
             br.close();
-
-            OutputStream os = new FileOutputStream(parent.getFileName());
-            Writer writer = new OutputStreamWriter(os, StandardCharsets.UTF_8);
-            BufferedWriter bw = new BufferedWriter(writer);
-            for(int i = 0; i < lines.size(); i++){
-                String[] part = lines.get(i).split("\\=");
-                if(Objects.equals(part[0],varName)){
-                    part[1] = newVarValue+"\n";
-                    String newVar = part[0]+"="+part[1];
-                    lines.set(i, newVar);
+            try(OutputStream os = new FileOutputStream(parent.getFileName());
+                Writer writer = new OutputStreamWriter(os, StandardCharsets.UTF_8);
+                BufferedWriter bw = new BufferedWriter(writer);){
+                for(int i = 0; i < lines.size(); i++){
+                    String[] part = lines.get(i).split("\\=");
+                    if(Objects.equals(part[0],varName)){
+                        part[1] = newVarValue+"\n";
+                        String newVar = part[0]+"="+part[1];
+                        lines.set(i, newVar);
+                    }
+                    bw.write(lines.get(i));
                 }
-                bw.write(lines.get(i));
+                bw.flush();
+            }catch(IOException e){
+                System.out.println("Exeption "+e);
             }
-            bw.flush();
+
+
         }catch (IOException e){
             System.out.println("Exeption "+e);
         }
