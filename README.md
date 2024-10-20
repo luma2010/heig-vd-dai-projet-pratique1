@@ -20,9 +20,45 @@ Les commandes font attentions aux points suivants :
   s'affiche indiquant le problème et le fichier n'est pas modifié.
 - La commande Modify permet de modifier la valeur d'une variable.  
 
-## Exemple d'utilisation
+## Git Clone et build local de l'application (git et Maven)
 
-#### Add
+Afin d'utiliser notre application sur votre machine en local, vous pouvez vous rendre sur notre repo GitHub en cliquant 
+sur le lien suivant : [repoProjet](https://github.com/luma2010/heig-vd-dai-projet-pratique1)  
+Une fois sur notre repo, nous vous recommandons de faire un fork du projet, cela vous permettra de tester ce que nous 
+avons fait et d'y apporter des modifications de votre côté comme bon vous semble. Pour cela, il vous suffit de cliquer 
+sur le bouton comme montrer dans l'image ci-dessous :  
+
+ ![image_fork](./Image_fork.png)
+
+Ouvrez le projet avec InteliJ. Vous devriez voir dans la partie supérieure droite, à côté du bouton play, le bouton
+d'un menu déroulant, comme montré ci-dessous :  
+
+![image_menu_config](./Image_ouvrir_menu_config.png)
+
+La première chose à faire est de choisir la configuration "Package application JAR file" :
+
+![Image_run_package](./Image_run_package.png)
+
+Une fois sélectionnée, lancer cette configuration en cliquant sur le bouton play en vert.
+
+![Image_run](./Image_run.png)
+
+Une fois que vous avez lancé cette configuration, vous pouvez vous référer à la partie des exemples d'utilisation pour
+lancer le programme en ligne de commande.  
+Vous pouvez aussi lancer le programme via l'IDE, en configurant la deuxième configuration (Run the application).  
+Afin de la configurer, veuillez appuyer sur le menu déroulant pour les configurations comme précédemment :
+
+![image_edit_config](./Image_edit_config_1.png)
+
+Puis une fois dans le menu d'édition des configurations, vous pouvez éditer la ligne mise en évidence sur l'image
+ci-dessous afin d'exécuter la commande souhaitée à chaque fois que vous appuyer sur le bouton play. Pour mieux connaître 
+les commandes, veuillez vous référer au chapitre suivant sur les exemples d'utilisation.
+
+![image_edit_config2](./Image_edit_config_2.png)
+
+
+## Exemples d'utilisation
+### Add
 La commande Add doit être utilisée comme ci-dessous :
 
 ```text
@@ -45,7 +81,7 @@ Si la variable existe déjà, le message doit être le suivant :
 Warning, variable test Already exist
 ```
 
-#### Delete
+### Delete
 La commande Delete doit être utilisée comme suit :
 
 ```text
@@ -66,7 +102,7 @@ La fonction affiche le message suivant si la variable n'existe pas :
 Variable test not found, nothing changed.
 ```
 
-#### Rename
+### Rename
 
 L'utilisation de la commande Rename doit se faire comme l'exemple ci-dessous :
 
@@ -96,6 +132,34 @@ Variable test not changed because newTest already exists.
 ```text
 Variable test not found, no changes made.
 ```
+
+### Modify
+
+L'utilisation de la commande Modify se fait selon le modèle suivant :
+
+```text
+java -jar heig-vd-dai-projet-pratique1-1.0-SNAPSHOT.jar <nomFichier> Modify <nomVariable> <nouvelleValeur>
+```
+
+En prenant exemple comme précédemment avec l'exemple suivant :
+
+```text
+java -jar heig-vd-dai-projet-pratique1-1.0-SNAPSHOT.jar test.txt Rename test 123
+```
+
+En cas de réussite, le message obtenu doit ressembler au message suivant :
+
+```text
+Value of variable test is now 123
+```
+
+Si la variable choisie n'existe pas, le programme affiche un message similaire au suivant :
+
+```text
+Variable test not found, no changes made.
+```
+
+
 
 
 
