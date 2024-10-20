@@ -1,0 +1,5 @@
+var1=12
+var2=abcd
+var3=true
+var4=12,5
+var5=54,9
