@@ -159,7 +159,13 @@ Si la variable choisie n'existe pas, le programme affiche un message similaire a
 Variable test not found, no changes made.
 ```
 
-
+## Conclusion
+Bien que notre programme fasse des choses simples, nous sommes assez satisfait de notre projet.  
+Nous avons essayé de penser à tous les cas de figure possible et espérons avoir fait un code assez robuste pour que
+d'autres personnes qui serait intéressée par ce projet puissent y ajouter leurs fonctionnalités et apporter leur touche 
+personnelle à une application qui pourrait devenir encore plus complète.  
+Nous avons pu apprendre un bon nombre de nouveautés durant ce projet et nous avons hâte de voir ce que la suite nous
+réserve.
 
 
 
